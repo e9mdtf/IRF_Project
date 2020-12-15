@@ -8,12 +8,5 @@ namespace inventory_project.Classes
 {
     class passwordEncrypt
     {
-        public static string getHash(string password)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            return hash.ToString();
-        }
     }
 }

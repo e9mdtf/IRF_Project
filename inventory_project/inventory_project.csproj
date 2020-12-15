@@ -108,10 +108,10 @@
     <Compile Include="manufacturer.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="newAsset.cs">
+    <Compile Include="UserControls\newAsset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newAsset.Designer.cs">
+    <Compile Include="UserControls\newAsset.Designer.cs">
       <DependentUpon>newAsset.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -125,10 +125,10 @@
     <Compile Include="UserControls\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="userView.cs">
+    <Compile Include="UserControls\userView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="userView.Designer.cs">
+    <Compile Include="UserControls\userView.Designer.cs">
       <DependentUpon>userView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="adminControl.resx">
@@ -137,7 +137,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newAsset.resx">
+    <EmbeddedResource Include="UserControls\newAsset.resx">
       <DependentUpon>newAsset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -152,7 +152,7 @@
     <EmbeddedResource Include="UserControls\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userView.resx">
+    <EmbeddedResource Include="UserControls\userView.resx">
       <DependentUpon>userView.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="inventoryProject.edmx">

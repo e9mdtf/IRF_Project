@@ -57,6 +57,7 @@
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "Bejelentkezés";
             this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // userLabel
             // 
