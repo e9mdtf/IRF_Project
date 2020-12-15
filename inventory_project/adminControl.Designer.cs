@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.importBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.newAssetBtn = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.adminDataGridView = new System.Windows.Forms.DataGridView();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.timeLabel = new System.Windows.Forms.Label();
+            this.elapsedTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +48,7 @@
             this.importBtn.TabIndex = 0;
             this.importBtn.Text = "Adatok importálása";
             this.importBtn.UseVisualStyleBackColor = true;
+            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
             // 
             // exportBtn
             // 
@@ -64,6 +67,7 @@
             this.newAssetBtn.TabIndex = 2;
             this.newAssetBtn.Text = "Új eszköz felvétele";
             this.newAssetBtn.UseVisualStyleBackColor = true;
+            this.newAssetBtn.Click += new System.EventHandler(this.newAssetBtn_Click);
             // 
             // showUsersBtn
             // 
@@ -100,6 +104,10 @@
             this.timeLabel.TabIndex = 6;
             this.timeLabel.Text = "label1";
             // 
+            // elapsedTime
+            // 
+            this.elapsedTime.Enabled = true;
+            // 
             // adminControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +136,6 @@
         private System.Windows.Forms.DataGridView adminDataGridView;
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Label timeLabel;
+        public System.Windows.Forms.Timer elapsedTime;
     }
 }
