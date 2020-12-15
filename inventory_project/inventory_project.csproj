@@ -125,6 +125,12 @@
     <Compile Include="UserControls\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="userView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userView.Designer.cs">
+      <DependentUpon>userView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="adminControl.resx">
       <DependentUpon>adminControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userView.resx">
+      <DependentUpon>userView.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="inventoryProject.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
