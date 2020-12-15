@@ -34,7 +34,7 @@
             this.showUsersBtn = new System.Windows.Forms.Button();
             this.adminDataGridView = new System.Windows.Forms.DataGridView();
             this.logoutBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,20 +91,20 @@
             this.logoutBtn.Text = "Kijelentkezés";
             this.logoutBtn.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // timeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(519, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(551, 40);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(35, 13);
+            this.timeLabel.TabIndex = 6;
+            this.timeLabel.Text = "label1";
             // 
             // adminControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.adminDataGridView);
             this.Controls.Add(this.showUsersBtn);
@@ -127,6 +127,6 @@
         private System.Windows.Forms.Button showUsersBtn;
         private System.Windows.Forms.DataGridView adminDataGridView;
         private System.Windows.Forms.Button logoutBtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
