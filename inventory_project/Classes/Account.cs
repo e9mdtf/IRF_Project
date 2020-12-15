@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace inventory_project.Classes
 {
-    class AccountManager
+    class Account
     {
         public String accountName { get; set; }
         public String password { get; set; }

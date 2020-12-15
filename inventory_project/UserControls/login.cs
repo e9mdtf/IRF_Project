@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using inventory_project.Classes;
 
 namespace inventory_project.UserControls
 {
@@ -15,6 +16,8 @@ namespace inventory_project.UserControls
         public login()
         {
             InitializeComponent();
+            Account account = new Account();
+
         }
     }
 }
