@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="inventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="assets">
+          <Key>
+            <PropertyRef Name="assetID" />
+          </Key>
+          <Property Name="assetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="assetname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="purchasedate" Type="date" Nullable="false" />
+          <Property Name="price" Type="int" />
+          <Property Name="serialnumber" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ConnectAssetManufacturer">
+          <Key>
+            <PropertyRef Name="connectID" />
+          </Key>
+          <Property Name="connectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="assetFk" Type="int" Nullable="false" />
+          <Property Name="manufacturerFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturerID" />
+          </Key>
+          <Property Name="manufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="manufacturerWebsite" Type="varchar" MaxLength="60" />
+          <Property Name="manufacturerEmail" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userpass" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="assetFk" Type="int" Nullable="false" />
+          <Property Name="adminstatus" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="connectAsset">
+          <End Role="assets" Type="Self.assets" Multiplicity="1" />
+          <End Role="ConnectAssetManufacturer" Type="Self.ConnectAssetManufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assets">
+              <PropertyRef Name="assetID" />
+            </Principal>
+            <Dependent Role="ConnectAssetManufacturer">
+              <PropertyRef Name="assetFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="connectManufacturer">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="ConnectAssetManufacturer" Type="Self.ConnectAssetManufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerID" />
+            </Principal>
+            <Dependent Role="ConnectAssetManufacturer">
+              <PropertyRef Name="manufacturerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserAsset">
+          <End Role="assets" Type="Self.assets" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assets">
+              <PropertyRef Name="assetID" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="assetFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventoryDatabaseModelStoreContainer">
+          <EntitySet Name="assets" EntityType="Self.assets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConnectAssetManufacturer" EntityType="Self.ConnectAssetManufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manufacturer" EntityType="Self.manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="connectAsset" Association="Self.connectAsset">
+            <End Role="assets" EntitySet="assets" />
+            <End Role="ConnectAssetManufacturer" EntitySet="ConnectAssetManufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="connectManufacturer" Association="Self.connectManufacturer">
+            <End Role="manufacturer" EntitySet="manufacturer" />
+            <End Role="ConnectAssetManufacturer" EntitySet="ConnectAssetManufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserAsset" Association="Self.fk_UserAsset">
+            <End Role="assets" EntitySet="assets" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inventoryDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="asset">
+          <Key>
+            <PropertyRef Name="assetID" />
+          </Key>
+          <Property Name="assetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="assetname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="purchasedate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="serialnumber" Type="String" Unicode="false" FixedLength="false" MaxLength="100" />
+          <NavigationProperty Name="ConnectAssetManufacturers" Relationship="Self.connectAsset" FromRole="assets" ToRole="ConnectAssetManufacturer" />
+          <NavigationProperty Name="users" Relationship="Self.fk_UserAsset" FromRole="assets" ToRole="users" />
+        </EntityType>
+        <EntityType Name="ConnectAssetManufacturer">
+          <Key>
+            <PropertyRef Name="connectID" />
+          </Key>
+          <Property Name="connectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="assetFk" Type="Int32" Nullable="false" />
+          <Property Name="manufacturerFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="asset" Relationship="Self.connectAsset" FromRole="ConnectAssetManufacturer" ToRole="assets" />
+          <NavigationProperty Name="manufacturer" Relationship="Self.connectManufacturer" FromRole="ConnectAssetManufacturer" ToRole="manufacturer" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturerID" />
+          </Key>
+          <Property Name="manufacturerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="manufacturerWebsite" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="manufacturerEmail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ConnectAssetManufacturers" Relationship="Self.connectManufacturer" FromRole="manufacturer" ToRole="ConnectAssetManufacturer" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userpass" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="assetFk" Type="Int32" Nullable="false" />
+          <Property Name="adminstatus" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="asset" Relationship="Self.fk_UserAsset" FromRole="users" ToRole="assets" />
+        </EntityType>
+        <Association Name="connectAsset">
+          <End Role="assets" Type="Self.asset" Multiplicity="1" />
+          <End Role="ConnectAssetManufacturer" Type="Self.ConnectAssetManufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assets">
+              <PropertyRef Name="assetID" />
+            </Principal>
+            <Dependent Role="ConnectAssetManufacturer">
+              <PropertyRef Name="assetFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserAsset">
+          <End Role="assets" Type="Self.asset" Multiplicity="1" />
+          <End Role="users" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assets">
+              <PropertyRef Name="assetID" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="assetFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="connectManufacturer">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="ConnectAssetManufacturer" Type="Self.ConnectAssetManufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerID" />
+            </Principal>
+            <Dependent Role="ConnectAssetManufacturer">
+              <PropertyRef Name="manufacturerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventoryDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="assets" EntityType="Self.asset" />
+          <EntitySet Name="ConnectAssetManufacturers" EntityType="Self.ConnectAssetManufacturer" />
+          <EntitySet Name="manufacturers" EntityType="Self.manufacturer" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="connectAsset" Association="Self.connectAsset">
+            <End Role="assets" EntitySet="assets" />
+            <End Role="ConnectAssetManufacturer" EntitySet="ConnectAssetManufacturers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserAsset" Association="Self.fk_UserAsset">
+            <End Role="assets" EntitySet="assets" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="connectManufacturer" Association="Self.connectManufacturer">
+            <End Role="manufacturer" EntitySet="manufacturers" />
+            <End Role="ConnectAssetManufacturer" EntitySet="ConnectAssetManufacturers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inventoryDatabaseModelStoreContainer" CdmEntityContainer="inventoryDatabaseEntities">
+          <EntitySetMapping Name="assets">
+            <EntityTypeMapping TypeName="inventoryDatabaseModel.asset">
+              <MappingFragment StoreEntitySet="assets">
+                <ScalarProperty Name="assetID" ColumnName="assetID" />
+                <ScalarProperty Name="assetname" ColumnName="assetname" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="purchasedate" ColumnName="purchasedate" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="serialnumber" ColumnName="serialnumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConnectAssetManufacturers">
+            <EntityTypeMapping TypeName="inventoryDatabaseModel.ConnectAssetManufacturer">
+              <MappingFragment StoreEntitySet="ConnectAssetManufacturer">
+                <ScalarProperty Name="connectID" ColumnName="connectID" />
+                <ScalarProperty Name="assetFk" ColumnName="assetFk" />
+                <ScalarProperty Name="manufacturerFk" ColumnName="manufacturerFk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manufacturers">
+            <EntityTypeMapping TypeName="inventoryDatabaseModel.manufacturer">
+              <MappingFragment StoreEntitySet="manufacturer">
+                <ScalarProperty Name="manufacturerID" ColumnName="manufacturerID" />
+                <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+                <ScalarProperty Name="manufacturerWebsite" ColumnName="manufacturerWebsite" />
+                <ScalarProperty Name="manufacturerEmail" ColumnName="manufacturerEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="inventoryDatabaseModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="assetFk" ColumnName="assetFk" />
+                <ScalarProperty Name="adminstatus" ColumnName="adminstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

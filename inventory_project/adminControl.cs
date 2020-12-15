@@ -13,6 +13,7 @@ namespace inventory_project
 {
     public partial class adminControl : UserControl
     {
+        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
         public adminControl()
         {
             InitializeComponent();
@@ -45,6 +46,20 @@ namespace inventory_project
                 while (!sr.EndOfStream)
                 {
                     string[] sor = sr.ReadLine().Split(';');
+                    asset asset = new asset();
+                    asset.assetname = sor[0];
+                    asset.model = sor[1];
+                    asset.category = sor[2];
+                    try
+                    {
+                        asset.purchasedate = DateTime.Parse(sor[3]);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                    asset.price = Int32.Parse(sor[4]);
+                    asset.serialnumber = sor[5];
                 }
             }
         }
