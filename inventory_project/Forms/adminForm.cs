@@ -38,8 +38,7 @@ namespace inventory_project
                                s.category,
                                s.price,
                                s.purchasedate,
-                               s.serialnumber,
-                               s.users
+                               s.serialnumber
                            };
             adatForras = eszkozok.ToList();
             adminDataGridView.DataSource = adatForras;
@@ -173,7 +172,6 @@ namespace inventory_project
                 "Beszerzési ár",
                 "Beszerzési idő",
                 "Gyári szám",
-                "Felhasználónév"
             };
             for (int i = 0; i < headers.Length; i++)
             {
@@ -189,7 +187,6 @@ namespace inventory_project
                 values[counter, 3] = e.price;
                 values[counter, 4] = e.purchasedate;
                 values[counter, 5] = e.serialnumber;
-                values[counter, 6] = e.username;
                 counter++;
             }
             excelWorkSheet.get_Range(
