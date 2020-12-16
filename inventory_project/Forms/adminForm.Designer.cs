@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.timeLabel = new System.Windows.Forms.Label();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.adminDataGridView = new System.Windows.Forms.DataGridView();
@@ -35,13 +36,14 @@
             this.newAssetBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.importBtn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(266, 43);
+            this.timeLabel.Location = new System.Drawing.Point(230, 43);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(35, 13);
             this.timeLabel.TabIndex = 13;
@@ -92,6 +94,7 @@
             this.exportBtn.TabIndex = 8;
             this.exportBtn.Text = "Exportálás";
             this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // importBtn
             // 
@@ -102,6 +105,10 @@
             this.importBtn.Text = "Adatok importálása";
             this.importBtn.UseVisualStyleBackColor = true;
             this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // adminForm
             // 
@@ -132,5 +139,6 @@
         private System.Windows.Forms.Button newAssetBtn;
         private System.Windows.Forms.Button exportBtn;
         private System.Windows.Forms.Button importBtn;
+        private System.Windows.Forms.Timer timer1;
     }
 }

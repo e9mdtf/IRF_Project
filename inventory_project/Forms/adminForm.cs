@@ -10,12 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace inventory_project
 {
     public partial class adminForm : Form
     {
+        Excel.Application excelApp;
+        Excel.Workbook excelWorkbook;
+        Excel.Worksheet excelWorkSheet;
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        private int remainingTime = 900;
+        List<IQueryable> exportData;
         public adminForm(String user)
         {
             InitializeComponent();
@@ -24,9 +31,19 @@ namespace inventory_project
         public void setData()
         {
             context.assets.Load();
-            var eszkozok = from s in context.assets
-                           select s;
+            var eszkozok = from s in context.users
+                           select new
+                           {
+                               s.asset.assetname,
+                               s.asset.model,
+                               s.asset.category,
+                               s.asset.price,
+                               s.asset.purchasedate,
+                               s.asset.serialnumber,
+                               s.username
+                           };
             adminDataGridView.DataSource = eszkozok.ToList();
+            timer1.Start();
         }
         private void newAssetBtn_Click(object sender, EventArgs e)
         {
@@ -120,5 +137,69 @@ namespace inventory_project
             f.Show();
             this.Close();
         }
+
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateExcel()
+        {
+            try
+            {
+                excelApp = new Excel.Application();
+                excelWorkbook = excelApp.Workbooks.Add(Missing.Value);
+                excelWorkSheet = excelWorkbook.ActiveSheet;
+                CreateTable();
+                excelApp.Visible = true;
+                excelApp.UserControl = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                excelWorkbook.Close(false, Type.Missing, Type.Missing);
+                excelApp.Quit();
+                excelWorkbook = null;
+                excelApp = null;
+            }
+        }
+        private void CreateTable()
+        {
+            string[] headers = new string[](
+                "Eszköz neve",
+                "Model",
+                "Kategória",
+                "Beszerzési ár",
+                "Beszerzési idő",
+                "Gyári szám",
+                "Felhasználónév"
+                );
+            for (int i = 0; i < headers.Length; i++)
+            {
+                excelWorkSheet.Cells[1, i + 1] = headers[i];
+            }
+        }
+
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            remainingTime--;
+            timeLabel.Text = "Hátralévő idő:" + remainingTime / 60 + "perc" + remainingTime % 60 + "másodperc";
+            if (remainingTime == 0)
+            {
+                timer1.Stop();
+                remainingTime = 900;
+                Form1 form = new Form1();
+                Account account = new Account();
+                account.accountName = String.Empty;
+                account.password = String.Empty;
+                form.Show();
+                this.Close();
+            }
+        }
     }
-}
+} 
+
+    
+
