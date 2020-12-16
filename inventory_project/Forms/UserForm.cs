@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace inventory_project
 {
+
     public partial class UserForm : Form
     {
+        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        List<user> users;
         public UserForm()
         {
             InitializeComponent();
+            users = context.users.ToList();
+            dataGridView1.DataSource = users;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inventory_project.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace inventory_project
         public adminForm()
         {
             InitializeComponent();
+            setData();
         }
         public void setData()
         {
@@ -91,6 +93,16 @@ namespace inventory_project
                     asset.serialnumber = sor[5];
                 }
             }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            Account account = new Account();
+            account.accountName = String.Empty;
+            account.password = String.Empty;
+            f.Show();
+            this.Close();
         }
     }
 }

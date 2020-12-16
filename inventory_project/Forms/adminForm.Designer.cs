@@ -55,6 +55,7 @@
             this.logoutBtn.TabIndex = 12;
             this.logoutBtn.Text = "Kijelentkezés";
             this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // adminDataGridView
             // 

@@ -12,33 +12,42 @@ namespace inventory_project.Classes
     {
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
 
-        public static Boolean CheckUser(string accountName, string password, inventoryDatabaseEntities context)
+        public static Boolean CheckUser(string accountName, string password, List<user> us)
         {
-            var user = from us in context.users
-                       where us.username == accountName && us.userpass == password
-                       select us;
-            if (user != null)
-            {
-                return true;
-            }
-            else
+            var user = from u in us
+                       where u.username == accountName && u.userpass == password
+                       select u;
+            List<user> usersFound = user.ToList();
+            if (usersFound.Count == 0)
             {
                 return false;
             }
+            else
+            {
+                return true;
+            }
         }
-        public static String GetUserType(String accountName, inventoryDatabaseEntities context)
+        public static String GetUserType(String accountName, List<user> us)
         {
-            var currentAccountStatus = from stat in context.users
+            var currentAccountStatus = from stat in us
                                        where stat.username == accountName
                                        select stat.adminstatus;
             return currentAccountStatus.ToString();
         }
         public static string getHash(string password)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            return hash.ToString();
+            StringBuilder Sb = new StringBuilder();
+
+            using (var hash = SHA256.Create())
+            {
+                Encoding enc = Encoding.UTF8;
+                Byte[] result = hash.ComputeHash(enc.GetBytes(password));
+
+                foreach (Byte b in result)
+                    Sb.Append(b.ToString("x2"));
+            }
+
+            return Sb.ToString();
         }
     }
 }
