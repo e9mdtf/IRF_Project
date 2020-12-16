@@ -21,9 +21,8 @@ namespace inventory_project.UserControls
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            Regex nameRegex = new Regex(@"^(?!\s*$).+");
-            Regex passwordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
-            if (nameRegex.IsMatch(nameTextBox.Text) & passwordRegex.IsMatch(passwordTextBox.Text))
+            Regex notBlankRegex = new Regex(@"^(?!\s*$).+");
+            if (notBlankRegex.IsMatch(nameTextBox.Text) & notBlankRegex.IsMatch(passwordTextBox.Text))
             {
                 Account account = new Account();
                 account.accountName = nameTextBox.Text;
@@ -31,7 +30,7 @@ namespace inventory_project.UserControls
             }
             else
             {
-
+                MessageBox.Show("A jelszó és a felhasználónév nem lehet üres");
             }
 
         }

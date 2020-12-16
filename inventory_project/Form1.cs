@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inventory_project.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace inventory_project
         public Form1()
         {
             InitializeComponent();
+        }
+
+
+        public void LoginWindow()
+        {
+            login lg = new login();
+            lg.Dock = DockStyle.Fill;
+            this.Controls.Add(lg);
         }
     }
 }
