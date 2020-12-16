@@ -39,6 +39,8 @@
             // 
             // loginBtn
             // 
+            this.loginBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.loginBtn.Location = new System.Drawing.Point(382, 312);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(125, 46);
@@ -49,6 +51,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Controls.Add(this.passwordLabel);
             this.panel1.Controls.Add(this.userLabel);
             this.panel1.Controls.Add(this.passwordTextBox);
@@ -63,18 +66,22 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(421, 207);
+            this.passwordLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.passwordLabel.Location = new System.Drawing.Point(414, 205);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(39, 13);
+            this.passwordLabel.Size = new System.Drawing.Size(51, 15);
             this.passwordLabel.TabIndex = 8;
             this.passwordLabel.Text = "Jelszó:";
             // 
             // userLabel
             // 
             this.userLabel.AutoSize = true;
-            this.userLabel.Location = new System.Drawing.Point(400, 127);
+            this.userLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.userLabel.Location = new System.Drawing.Point(392, 125);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(84, 13);
+            this.userLabel.Size = new System.Drawing.Size(104, 15);
             this.userLabel.TabIndex = 7;
             this.userLabel.Text = "Felhasználónév:";
             // 
@@ -82,6 +89,7 @@
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(382, 223);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(125, 20);
             this.passwordTextBox.TabIndex = 6;
             // 

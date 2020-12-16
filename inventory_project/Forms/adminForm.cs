@@ -195,6 +195,15 @@ namespace inventory_project
             excelWorkSheet.get_Range(
                 GetCell(2, 1),
                 GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+                int lastRowID = excelWorkSheet.UsedRange.Rows.Count;
+                int lastColID = excelWorkSheet.UsedRange.Columns.Count;
+                Excel.Range headerRange = excelWorkSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+                Excel.Range tableRange = excelWorkSheet.get_Range(GetCell(1, 1), GetCell(1 + values.GetLength(0), values.GetLength(1)));
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.VerticalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.Font.Bold = true;
+            headerRange.Font.Italic = true;
+            tableRange.BorderAround2(Excel.XlLineStyle.xlDouble, Excel.XlBorderWeight.xlMedium);
         }
 
 
