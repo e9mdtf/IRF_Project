@@ -43,7 +43,7 @@ namespace inventory_project
 
         private void priceTextBox_Validating(object sender, CancelEventArgs e)
         {
-            Regex priceRegex = new Regex(@"^[0 - 9] $");
+            Regex priceRegex = new Regex(@"^\d+$");
             if (priceRegex.IsMatch(priceTextBox.Text))
             {
                 if (!String.IsNullOrWhiteSpace(priceTextBox.Text))

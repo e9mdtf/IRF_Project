@@ -75,6 +75,7 @@
             this.showUsersBtn.TabIndex = 10;
             this.showUsersBtn.Text = "Felhasználók megjelenítése";
             this.showUsersBtn.UseVisualStyleBackColor = true;
+            this.showUsersBtn.Click += new System.EventHandler(this.showUsersBtn_Click);
             // 
             // newAssetBtn
             // 
@@ -108,6 +109,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // adminForm

@@ -22,7 +22,7 @@ namespace inventory_project
         Excel.Worksheet excelWorkSheet;
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
         private int remainingTime = 900;
-        List<IQueryable> exportData;
+        dynamic adatForras;
         public adminForm(String user)
         {
             InitializeComponent();
@@ -30,19 +30,19 @@ namespace inventory_project
         }
         public void setData()
         {
-            context.assets.Load();
-            var eszkozok = from s in context.users
+            var eszkozok = from s in context.assets
                            select new
                            {
-                               s.asset.assetname,
-                               s.asset.model,
-                               s.asset.category,
-                               s.asset.price,
-                               s.asset.purchasedate,
-                               s.asset.serialnumber,
-                               s.username
+                               s.assetname,
+                               s.model,
+                               s.category,
+                               s.price,
+                               s.purchasedate,
+                               s.serialnumber,
+                               s.users
                            };
-            adminDataGridView.DataSource = eszkozok.ToList();
+            adatForras = eszkozok.ToList();
+            adminDataGridView.DataSource = adatForras;
             timer1.Start();
         }
         private void newAssetBtn_Click(object sender, EventArgs e)
@@ -74,6 +74,7 @@ namespace inventory_project
                     MessageBox.Show(ex.Message);
                 }
                 MessageBox.Show("Az eszköz hozzáadása az adatbázishoz sikeres volt");
+                setData();
             }
             else
             {
@@ -140,7 +141,7 @@ namespace inventory_project
 
         private void exportBtn_Click(object sender, EventArgs e)
         {
-
+            CreateExcel();
         }
 
         private void CreateExcel()
@@ -165,7 +166,7 @@ namespace inventory_project
         }
         private void CreateTable()
         {
-            string[] headers = new string[](
+            string[] headers = new string[] {
                 "Eszköz neve",
                 "Model",
                 "Kategória",
@@ -173,11 +174,27 @@ namespace inventory_project
                 "Beszerzési idő",
                 "Gyári szám",
                 "Felhasználónév"
-                );
+            };
             for (int i = 0; i < headers.Length; i++)
             {
                 excelWorkSheet.Cells[1, i + 1] = headers[i];
             }
+            object[,] values = new object[adatForras.Count, headers.Length];
+            int counter = 0;
+            foreach (var e in adatForras)
+            {
+                values[counter, 0] = e.assetname;
+                values[counter, 1] = e.model;
+                values[counter, 2] = e.category;
+                values[counter, 3] = e.price;
+                values[counter, 4] = e.purchasedate;
+                values[counter, 5] = e.serialnumber;
+                values[counter, 6] = e.username;
+                counter++;
+            }
+            excelWorkSheet.get_Range(
+                GetCell(2, 1),
+                GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
         }
 
 
@@ -197,6 +214,27 @@ namespace inventory_project
                 form.Show();
                 this.Close();
             }
+        }
+        private string GetCell(int x, int y) //Órai függvény felhasználása
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+        }
+
+        private void showUsersBtn_Click(object sender, EventArgs e)
+        {
+            userView form = new userView();
+            form.Show();
         }
     }
 } 
