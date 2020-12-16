@@ -68,6 +68,8 @@
             this.assetNameTextbox.Name = "assetNameTextbox";
             this.assetNameTextbox.Size = new System.Drawing.Size(200, 20);
             this.assetNameTextbox.TabIndex = 2;
+            this.assetNameTextbox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.assetNameTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
             // 
             // modelTextBox
             // 
@@ -75,6 +77,8 @@
             this.modelTextBox.Name = "modelTextBox";
             this.modelTextBox.Size = new System.Drawing.Size(200, 20);
             this.modelTextBox.TabIndex = 3;
+            this.modelTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.modelTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
             // 
             // categoryTextBox
             // 
@@ -82,6 +86,8 @@
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(200, 20);
             this.categoryTextBox.TabIndex = 4;
+            this.categoryTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
             // 
             // priceTextBox
             // 
@@ -89,6 +95,8 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(200, 20);
             this.priceTextBox.TabIndex = 5;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.priceTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.priceTextBox_Validating);
             // 
             // dateTimePicker1
             // 
@@ -103,6 +111,8 @@
             this.serialTextBox.Name = "serialTextBox";
             this.serialTextBox.Size = new System.Drawing.Size(200, 20);
             this.serialTextBox.TabIndex = 7;
+            this.serialTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.serialTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
             // 
             // assetNameLabel
             // 
