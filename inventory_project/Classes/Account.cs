@@ -11,15 +11,6 @@ namespace inventory_project.Classes
     {
         public String accountName { get; set; }
         public String password { get; set; }
-
         public Boolean adminStatus { get; set; }
-
-        public static string getHash(string password)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            return hash.ToString();
-        }
     }
 }

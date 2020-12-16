@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Data.Entity;
 
 namespace inventory_project
 {
-    public partial class adminControl : UserControl
+    public partial class adminForm : Form
     {
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
-        public adminControl()
+        public adminForm()
         {
             InitializeComponent();
-            setData();
         }
-
+        public void setData()
+        {
+            context.assets.Load();
+            var eszkozok = from s in context.assets
+                           select s;
+            adminDataGridView.DataSource = eszkozok.ToList();
+        }
         private void newAssetBtn_Click(object sender, EventArgs e)
         {
             newAsset form = new newAsset();
@@ -34,13 +39,7 @@ namespace inventory_project
                 MessageBox.Show("Az új eszköz nem lett hozzáadva az adatbázishoz");
             }
         }
-        public void setData()
-        {
-            context.assets.Load();
-            var eszkozok = from s in context.assets
-                           select s;
-            adminDataGridView.DataSource = eszkozok.ToList();
-        }
+
         private void importBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog importOlvaso = new OpenFileDialog();

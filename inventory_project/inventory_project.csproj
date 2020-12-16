@@ -70,11 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\adminForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminControl.Designer.cs">
-      <DependentUpon>adminControl.cs</DependentUpon>
+    <Compile Include="Forms\adminForm.Designer.cs">
+      <DependentUpon>adminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="asset.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
@@ -85,10 +85,10 @@
     <Compile Include="ConnectAssetManufacturer.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="inventoryProject.Context.cs">
@@ -109,10 +109,10 @@
     <Compile Include="manufacturer.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\newAsset.cs">
+    <Compile Include="Forms\newAsset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControls\newAsset.Designer.cs">
+    <Compile Include="Forms\newAsset.Designer.cs">
       <DependentUpon>newAsset.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -120,25 +120,25 @@
     <Compile Include="user.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\userView.cs">
+    <Compile Include="Forms\userView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControls\userView.Designer.cs">
+    <Compile Include="Forms\userView.Designer.cs">
       <DependentUpon>userView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="adminControl.resx">
-      <DependentUpon>adminControl.cs</DependentUpon>
+    <Compile Include="Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\adminForm.resx">
+      <DependentUpon>adminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\newAsset.resx">
+    <EmbeddedResource Include="Forms\newAsset.resx">
       <DependentUpon>newAsset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -150,10 +150,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\userView.resx">
+    <EmbeddedResource Include="Forms\userView.resx">
       <DependentUpon>userView.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="inventoryProject.edmx">

@@ -1,24 +1,27 @@
-﻿using System;
+﻿using inventory_project.Classes;
+using inventory_project.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using inventory_project.Classes;
-using System.Text.RegularExpressions;
 
-namespace inventory_project.UserControls
+namespace inventory_project
 {
-    public partial class login : UserControl
+    
+
+    public partial class Form1 : Form
     {
-        public login()
+        inventoryDatabaseEntities entities = new inventoryDatabaseEntities();
+        public Form1()
         {
             InitializeComponent();
-        }
-
+      }
         private void loginBtn_Click(object sender, EventArgs e)
         {
             Regex notBlankRegex = new Regex(@"^(?!\s*$).+");
@@ -30,7 +33,23 @@ namespace inventory_project.UserControls
                 bool userExists = AccountManager.CheckUser(account.accountName, account.password);
                 if (userExists == true)
                 {
-                    AccountManager.GetUserType(account.accountName);
+                    string userType = AccountManager.GetUserType(account.accountName);
+                    if (userType == "1")
+                    {
+                        adminForm f = new adminForm();
+                        f.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        UserForm f = new UserForm();
+                        f.Show();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("A megadott jelszó vagy felhasználónév nem megfelelő!");
                 }
             }
             else
@@ -39,5 +58,6 @@ namespace inventory_project.UserControls
             }
 
         }
+    }
     }
 }

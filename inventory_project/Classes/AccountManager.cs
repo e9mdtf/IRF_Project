@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,13 +12,9 @@ namespace inventory_project.Classes
     {
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
 
-        public AccountManager()
+        public static Boolean CheckUser(string accountName, string password, inventoryDatabaseEntities context)
         {
-            LoadUsers();
-        }
-        public static Boolean CheckUser(string accountName, string password)
-        {
-            var user = from us in users
+            var user = from us in context.users
                        where us.username == accountName && us.userpass == password
                        select us;
             if (user != null)
@@ -29,20 +26,19 @@ namespace inventory_project.Classes
                 return false;
             }
         }
-        public static String GetUserType(String accountName)
+        public static String GetUserType(String accountName, inventoryDatabaseEntities context)
         {
-            
-            var users = 
-            var currentAccountStatus = from stat in 
+            var currentAccountStatus = from stat in context.users
                                        where stat.username == accountName
                                        select stat.adminstatus;
             return currentAccountStatus.ToString();
         }
-        public user LoadUsers()
+        public static string getHash(string password)
         {
-            context.users.Load();
-            var users = context.users.Local;
-            return users;
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            return hash.ToString();
         }
     }
 }
