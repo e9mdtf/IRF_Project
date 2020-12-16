@@ -27,12 +27,17 @@ namespace inventory_project.Classes
                 return true;
             }
         }
-        public static String GetUserType(String accountName, List<user> us)
+        public static Boolean GetUserType(String accountName, List<user> us)
         {
             var currentAccountStatus = from stat in us
                                        where stat.username == accountName
                                        select stat.adminstatus;
-            return currentAccountStatus.ToString();
+            bool status = false;
+            foreach (var s in currentAccountStatus)
+            {
+                status = s;
+            }
+            return status;
         }
         public static string getHash(string password)
         {

@@ -34,8 +34,8 @@ namespace inventory_project
                 bool userExists = AccountManager.CheckUser(account.accountName, account.password, users);
                 if (userExists == true)
                 {
-                    string userType = AccountManager.GetUserType(account.accountName, users);
-                    if (userType == "true")
+                    bool userType = AccountManager.GetUserType(account.accountName, users);
+                    if (userType == true)
                     {
                         adminForm f = new adminForm();
                         this.Hide();
