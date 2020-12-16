@@ -10,12 +10,14 @@ namespace inventory_project.Classes
     class AccountManager
     {
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
-        
-        public Boolean CheckUser(string accountName, string password)
+
+        public AccountManager()
         {
-            context.users.Load();
-            var users = context.users.Local;
-            var user = from us in context.users
+            LoadUsers();
+        }
+        public static Boolean CheckUser(string accountName, string password)
+        {
+            var user = from us in users
                        where us.username == accountName && us.userpass == password
                        select us;
             if (user != null)
@@ -27,14 +29,20 @@ namespace inventory_project.Classes
                 return false;
             }
         }
-        public String GetUserType(String accountName)
+        public static String GetUserType(String accountName)
         {
-            context.users.Load();
-            var users = context.users.Local;
-            var currentAccountStatus = from stat in context.users
+            
+            var users = 
+            var currentAccountStatus = from stat in 
                                        where stat.username == accountName
                                        select stat.adminstatus;
             return currentAccountStatus.ToString();
+        }
+        public user LoadUsers()
+        {
+            context.users.Load();
+            var users = context.users.Local;
+            return users;
         }
     }
 }

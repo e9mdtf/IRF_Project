@@ -11,8 +11,12 @@ using System.Windows.Forms;
 
 namespace inventory_project
 {
+    
+
     public partial class Form1 : Form
     {
+        inventoryDatabaseEntities entities = new inventoryDatabaseEntities();
+        public List<user>;
         public Form1()
         {
             InitializeComponent();

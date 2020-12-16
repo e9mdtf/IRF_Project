@@ -27,6 +27,11 @@ namespace inventory_project.UserControls
                 Account account = new Account();
                 account.accountName = nameTextBox.Text;
                 account.password = Account.getHash(passwordTextBox.Text);
+                bool userExists = AccountManager.CheckUser(account.accountName, account.password);
+                if (userExists == true)
+                {
+                    AccountManager.GetUserType(account.accountName);
+                }
             }
             else
             {

@@ -33,6 +33,8 @@
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.filterBtn = new System.Windows.Forms.Button();
+            this.userDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -78,11 +80,20 @@
             this.filterBtn.Text = "Szűrés";
             this.filterBtn.UseVisualStyleBackColor = true;
             // 
+            // userDataGridView
+            // 
+            this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userDataGridView.Location = new System.Drawing.Point(34, 60);
+            this.userDataGridView.Name = "userDataGridView";
+            this.userDataGridView.Size = new System.Drawing.Size(586, 388);
+            this.userDataGridView.TabIndex = 6;
+            // 
             // userView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 460);
+            this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.filterBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.filterTextBox);
@@ -90,6 +101,7 @@
             this.Controls.Add(this.exitBtn);
             this.Name = "userView";
             this.Text = "userView";
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +114,6 @@
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button filterBtn;
+        private System.Windows.Forms.DataGridView userDataGridView;
     }
 }

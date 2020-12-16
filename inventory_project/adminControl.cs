@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.Entity;
 
 namespace inventory_project
 {
@@ -17,6 +18,7 @@ namespace inventory_project
         public adminControl()
         {
             InitializeComponent();
+            setData();
         }
 
         private void newAssetBtn_Click(object sender, EventArgs e)
@@ -32,7 +34,13 @@ namespace inventory_project
                 MessageBox.Show("Az új eszköz nem lett hozzáadva az adatbázishoz");
             }
         }
-
+        public void setData()
+        {
+            context.assets.Load();
+            var eszkozok = from s in context.assets
+                           select s;
+            adminDataGridView.DataSource = eszkozok.ToList();
+        }
         private void importBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog importOlvaso = new OpenFileDialog();
