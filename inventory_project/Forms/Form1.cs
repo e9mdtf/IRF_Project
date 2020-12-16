@@ -16,7 +16,7 @@ namespace inventory_project
 
     public partial class Form1 : Form
     {
-        inventoryDatabaseEntities entities = new inventoryDatabaseEntities();
+        inventoryDatabaseEntities1 entities = new inventoryDatabaseEntities1();
         List<user> users;
         public Form1()
         {

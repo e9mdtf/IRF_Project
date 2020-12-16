@@ -43,20 +43,25 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.timeLabel.Location = new System.Drawing.Point(230, 43);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(35, 13);
+            this.timeLabel.Size = new System.Drawing.Size(45, 15);
             this.timeLabel.TabIndex = 13;
             this.timeLabel.Text = "label1";
             // 
             // logoutBtn
             // 
+            this.logoutBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.logoutBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.logoutBtn.Location = new System.Drawing.Point(42, 33);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(126, 32);
             this.logoutBtn.TabIndex = 12;
             this.logoutBtn.Text = "Kijelentkezés";
-            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.UseVisualStyleBackColor = false;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // adminDataGridView
@@ -69,6 +74,8 @@
             // 
             // showUsersBtn
             // 
+            this.showUsersBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showUsersBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.showUsersBtn.Location = new System.Drawing.Point(727, 94);
             this.showUsersBtn.Name = "showUsersBtn";
             this.showUsersBtn.Size = new System.Drawing.Size(151, 99);
@@ -79,6 +86,8 @@
             // 
             // newAssetBtn
             // 
+            this.newAssetBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newAssetBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.newAssetBtn.Location = new System.Drawing.Point(727, 236);
             this.newAssetBtn.Name = "newAssetBtn";
             this.newAssetBtn.Size = new System.Drawing.Size(151, 95);
@@ -89,6 +98,8 @@
             // 
             // exportBtn
             // 
+            this.exportBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.exportBtn.Location = new System.Drawing.Point(727, 384);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(151, 91);
@@ -99,6 +110,8 @@
             // 
             // importBtn
             // 
+            this.importBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.importBtn.Location = new System.Drawing.Point(727, 519);
             this.importBtn.Name = "importBtn";
             this.importBtn.Size = new System.Drawing.Size(151, 83);
@@ -116,7 +129,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1313, 726);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(1204, 660);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.adminDataGridView);
@@ -124,6 +138,7 @@
             this.Controls.Add(this.newAssetBtn);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.importBtn);
+            this.ForeColor = System.Drawing.SystemColors.Info;
             this.Name = "adminForm";
             this.Text = "adminForm";
             ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).EndInit();

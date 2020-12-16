@@ -15,7 +15,7 @@ namespace inventory_project
 {
     public partial class userView : Form
     {
-        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        inventoryDatabaseEntities1 context = new inventoryDatabaseEntities1();
         public userView()
         {
             InitializeComponent();

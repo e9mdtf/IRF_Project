@@ -70,20 +70,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="asset.cs">
+      <DependentUpon>inventoryDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectAssetManufacturer.cs">
+      <DependentUpon>inventoryDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Forms\adminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\adminForm.Designer.cs">
       <DependentUpon>adminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="asset.cs">
-      <DependentUpon>inventoryProject.tt</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\AccountManager.cs" />
-    <Compile Include="ConnectAssetManufacturer.cs">
-      <DependentUpon>inventoryProject.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,35 +96,32 @@
     <Compile Include="Forms\newUser.Designer.cs">
       <DependentUpon>newUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="inventoryProject.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventoryProject.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="inventoryProject.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventoryProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="inventoryProject.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventoryProject.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="manufacturer.cs">
-      <DependentUpon>inventoryProject.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\newAsset.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\newAsset.Designer.cs">
       <DependentUpon>newAsset.cs</DependentUpon>
     </Compile>
+    <Compile Include="inventoryDatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventoryDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventoryDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventoryDatabase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="manufacturer.cs">
+      <DependentUpon>inventoryDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="user.cs">
-      <DependentUpon>inventoryProject.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\userView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +133,9 @@
     </Compile>
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>inventoryDatabase.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
@@ -164,12 +164,12 @@
     <EmbeddedResource Include="Forms\userView.resx">
       <DependentUpon>userView.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="inventoryProject.edmx">
+    <EntityDeploy Include="inventoryDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>inventoryProject.Designer.cs</LastGenOutput>
+      <LastGenOutput>inventoryDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="inventoryProject.edmx.diagram">
-      <DependentUpon>inventoryProject.edmx</DependentUpon>
+    <None Include="inventoryDatabase.edmx.diagram">
+      <DependentUpon>inventoryDatabase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -196,18 +196,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="inventoryProject.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>inventoryProject.Context.cs</LastGenOutput>
-      <DependentUpon>inventoryProject.edmx</DependentUpon>
-    </Content>
-    <Content Include="inventoryProject.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>inventoryProject.edmx</DependentUpon>
-      <LastGenOutput>inventoryProject.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -240,6 +228,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="inventoryDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>inventoryDatabase.edmx</DependentUpon>
+      <LastGenOutput>inventoryDatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="inventoryDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>inventoryDatabase.edmx</DependentUpon>
+      <LastGenOutput>inventoryDatabase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

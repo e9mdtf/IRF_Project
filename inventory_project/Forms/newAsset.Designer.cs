@@ -47,6 +47,8 @@
             // okBtn
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.okBtn.Location = new System.Drawing.Point(232, 340);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(104, 67);
@@ -57,6 +59,8 @@
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.cancelBtn.Location = new System.Drawing.Point(391, 340);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(107, 67);
@@ -84,7 +88,7 @@
             // 
             // categoryTextBox
             // 
-            this.categoryTextBox.Location = new System.Drawing.Point(329, 124);
+            this.categoryTextBox.Location = new System.Drawing.Point(329, 120);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(200, 20);
             this.categoryTextBox.TabIndex = 4;
@@ -119,54 +123,66 @@
             // assetNameLabel
             // 
             this.assetNameLabel.AutoSize = true;
+            this.assetNameLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assetNameLabel.ForeColor = System.Drawing.SystemColors.Info;
             this.assetNameLabel.Location = new System.Drawing.Point(229, 34);
             this.assetNameLabel.Name = "assetNameLabel";
-            this.assetNameLabel.Size = new System.Drawing.Size(65, 13);
+            this.assetNameLabel.Size = new System.Drawing.Size(84, 15);
             this.assetNameLabel.TabIndex = 8;
             this.assetNameLabel.Text = "Eszköz név:";
             // 
             // modelLabel
             // 
             this.modelLabel.AutoSize = true;
-            this.modelLabel.Location = new System.Drawing.Point(228, 77);
+            this.modelLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modelLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.modelLabel.Location = new System.Drawing.Point(214, 75);
             this.modelLabel.Name = "modelLabel";
-            this.modelLabel.Size = new System.Drawing.Size(75, 13);
+            this.modelLabel.Size = new System.Drawing.Size(99, 15);
             this.modelLabel.TabIndex = 9;
             this.modelLabel.Text = "Eszköz model:";
             // 
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Location = new System.Drawing.Point(228, 127);
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.categoryLabel.Location = new System.Drawing.Point(245, 125);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(55, 13);
+            this.categoryLabel.Size = new System.Drawing.Size(68, 15);
             this.categoryLabel.TabIndex = 10;
             this.categoryLabel.Text = "Kategória:";
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(228, 177);
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.dateLabel.Location = new System.Drawing.Point(201, 175);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(83, 13);
+            this.dateLabel.Size = new System.Drawing.Size(112, 15);
             this.dateLabel.TabIndex = 11;
             this.dateLabel.Text = "Beszerzés ideje:";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(229, 223);
+            this.priceLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLabel.ForeColor = System.Drawing.SystemColors.Info;
+            this.priceLabel.Location = new System.Drawing.Point(214, 221);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(72, 13);
+            this.priceLabel.Size = new System.Drawing.Size(99, 15);
             this.priceLabel.TabIndex = 12;
             this.priceLabel.Text = "Beszerzési ár:";
             // 
             // serialLabel
             // 
             this.serialLabel.AutoSize = true;
+            this.serialLabel.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serialLabel.ForeColor = System.Drawing.SystemColors.Info;
             this.serialLabel.Location = new System.Drawing.Point(229, 276);
             this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(61, 13);
+            this.serialLabel.Size = new System.Drawing.Size(84, 15);
             this.serialLabel.TabIndex = 13;
             this.serialLabel.Text = "Gyári szám:";
             // 
@@ -174,6 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.serialLabel);
             this.Controls.Add(this.priceLabel);

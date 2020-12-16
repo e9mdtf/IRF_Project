@@ -16,7 +16,7 @@ namespace inventory_project
 
     public partial class UserForm : Form
     {
-        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        inventoryDatabaseEntities1 context = new inventoryDatabaseEntities1();
         List<asset> assets;
         List<user> users;
         String currentUser;

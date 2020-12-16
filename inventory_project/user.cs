@@ -17,7 +17,7 @@ namespace inventory_project
         public int userID { get; set; }
         public string username { get; set; }
         public string userpass { get; set; }
-        public int assetFk { get; set; }
+        public Nullable<int> assetFk { get; set; }
         public bool adminstatus { get; set; }
     
         public virtual asset asset { get; set; }

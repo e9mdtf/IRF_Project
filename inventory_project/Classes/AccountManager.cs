@@ -10,7 +10,7 @@ namespace inventory_project.Classes
 {
     class AccountManager
     {
-        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        inventoryDatabaseEntities1 context = new inventoryDatabaseEntities1();
 
         public static Boolean CheckUser(string accountName, string password, List<user> us)
         {

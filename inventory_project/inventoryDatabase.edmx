@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="inventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="inventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="assets">
           <Key>
             <PropertyRef Name="assetID" />
@@ -41,7 +41,7 @@
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="userpass" Type="char" MaxLength="64" Nullable="false" />
-          <Property Name="assetFk" Type="int" Nullable="false" />
+          <Property Name="assetFk" Type="int" />
           <Property Name="adminstatus" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="connectAsset">
@@ -69,7 +69,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_UserAsset">
-          <End Role="assets" Type="Self.assets" Multiplicity="1" />
+          <End Role="assets" Type="Self.assets" Multiplicity="0..1" />
           <End Role="users" Type="Self.users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="assets">
@@ -98,7 +98,8 @@
             <End Role="users" EntitySet="users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="inventoryDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -112,7 +113,7 @@
           <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="purchasedate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="price" Type="Int32" />
-          <Property Name="serialnumber" Type="String" Unicode="false" FixedLength="false" MaxLength="100" />
+          <Property Name="serialnumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ConnectAssetManufacturers" Relationship="Self.connectAsset" FromRole="assets" ToRole="ConnectAssetManufacturer" />
           <NavigationProperty Name="users" Relationship="Self.fk_UserAsset" FromRole="assets" ToRole="users" />
         </EntityType>
@@ -143,7 +144,7 @@
           <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userpass" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="assetFk" Type="Int32" Nullable="false" />
+          <Property Name="assetFk" Type="Int32" />
           <Property Name="adminstatus" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="asset" Relationship="Self.fk_UserAsset" FromRole="users" ToRole="assets" />
         </EntityType>
@@ -160,7 +161,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_UserAsset">
-          <End Role="assets" Type="Self.asset" Multiplicity="1" />
+          <End Role="assets" Type="Self.asset" Multiplicity="0..1" />
           <End Role="users" Type="Self.user" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="assets">
@@ -183,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="inventoryDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="inventoryDatabaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="assets" EntityType="Self.asset" />
           <EntitySet Name="ConnectAssetManufacturers" EntityType="Self.ConnectAssetManufacturer" />
           <EntitySet Name="manufacturers" EntityType="Self.manufacturer" />
@@ -206,7 +207,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="inventoryDatabaseModelStoreContainer" CdmEntityContainer="inventoryDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="inventoryDatabaseModelStoreContainer" CdmEntityContainer="inventoryDatabaseEntities1">
           <EntitySetMapping Name="assets">
             <EntityTypeMapping TypeName="inventoryDatabaseModel.asset">
               <MappingFragment StoreEntitySet="assets">

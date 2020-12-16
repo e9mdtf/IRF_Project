@@ -20,7 +20,7 @@ namespace inventory_project
         Excel.Application excelApp;
         Excel.Workbook excelWorkbook;
         Excel.Worksheet excelWorkSheet;
-        inventoryDatabaseEntities context = new inventoryDatabaseEntities();
+        inventoryDatabaseEntities1 context = new inventoryDatabaseEntities1();
         private int remainingTime = 900;
         dynamic adatForras;
         public adminForm(String user)

@@ -13,10 +13,10 @@ namespace inventory_project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class inventoryDatabaseEntities : DbContext
+    public partial class inventoryDatabaseEntities1 : DbContext
     {
-        public inventoryDatabaseEntities()
-            : base("name=inventoryDatabaseEntities")
+        public inventoryDatabaseEntities1()
+            : base("name=inventoryDatabaseEntities1")
         {
         }
     

@@ -39,6 +39,8 @@
             // 
             // exitBtn
             // 
+            this.exitBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.exitBtn.Location = new System.Drawing.Point(652, 391);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(126, 57);
@@ -49,6 +51,8 @@
             // 
             // newUserBtn
             // 
+            this.newUserBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newUserBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.newUserBtn.Location = new System.Drawing.Point(652, 60);
             this.newUserBtn.Name = "newUserBtn";
             this.newUserBtn.Size = new System.Drawing.Size(126, 58);
@@ -59,7 +63,7 @@
             // 
             // filterTextBox
             // 
-            this.filterTextBox.Location = new System.Drawing.Point(96, 12);
+            this.filterTextBox.Location = new System.Drawing.Point(116, 12);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(147, 20);
             this.filterTextBox.TabIndex = 3;
@@ -67,14 +71,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Info;
             this.label1.Location = new System.Drawing.Point(6, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Felhasználónév:";
             // 
             // filterBtn
             // 
+            this.filterBtn.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterBtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.filterBtn.Location = new System.Drawing.Point(275, 10);
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(75, 23);
@@ -95,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(808, 460);
             this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.filterBtn);
