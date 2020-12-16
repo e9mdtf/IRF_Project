@@ -37,21 +37,17 @@ namespace inventory_project
                     bool userType = AccountManager.GetUserType(account.accountName, users);
                     if (userType == true)
                     {
-                        adminForm f = new adminForm();
+                        adminForm f = new adminForm(account.accountName);
                         this.Hide();
                         f.Show();
                         f.Activate();                     
                     }
                     else
                     {
-                        var kerdes = from i in entities.users
-                                     select i;
-                        MessageBox.Show(kerdes.ToString());
-                        UserForm f = new UserForm();
+                        UserForm f = new UserForm(account.accountName);
                         this.Hide();
                         f.Show();
                         f.Activate();
-                        MessageBox.Show(userExists.ToString());
                     }
                 }
                 else

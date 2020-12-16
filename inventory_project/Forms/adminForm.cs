@@ -16,7 +16,7 @@ namespace inventory_project
     public partial class adminForm : Form
     {
         inventoryDatabaseEntities context = new inventoryDatabaseEntities();
-        public adminForm()
+        public adminForm(String user)
         {
             InitializeComponent();
             setData();
@@ -78,6 +78,7 @@ namespace inventory_project
                 {
                     string[] sor = sr.ReadLine().Split(';');
                     asset asset = new asset();
+                    manufacturer manufacturer = new manufacturer();
                     asset.assetname = sor[0];
                     asset.model = sor[1];
                     asset.category = sor[2];
@@ -91,8 +92,23 @@ namespace inventory_project
                     }
                     asset.price = Int32.Parse(sor[4]);
                     asset.serialnumber = sor[5];
+                    manufacturer.manufacturerName = sor[6];
+                    manufacturer.manufacturerWebsite = sor[7];
+                    manufacturer.manufacturerEmail = sor[8];
+                    context.assets.Add(asset);
+                    context.manufacturers.Add(manufacturer);
                 }
             }
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            setData();
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
