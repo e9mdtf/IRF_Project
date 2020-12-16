@@ -188,17 +188,17 @@
 
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.TextBox assetNameTextbox;
-        private System.Windows.Forms.TextBox modelTextBox;
-        private System.Windows.Forms.TextBox categoryTextBox;
-        private System.Windows.Forms.TextBox priceTextBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox serialTextBox;
         private System.Windows.Forms.Label assetNameLabel;
         private System.Windows.Forms.Label modelLabel;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label serialLabel;
+        public System.Windows.Forms.TextBox assetNameTextbox;
+        public System.Windows.Forms.TextBox modelTextBox;
+        public System.Windows.Forms.TextBox categoryTextBox;
+        public System.Windows.Forms.TextBox priceTextBox;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.TextBox serialTextBox;
     }
 }

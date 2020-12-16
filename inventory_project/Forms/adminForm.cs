@@ -31,7 +31,29 @@ namespace inventory_project
             newAsset form = new newAsset();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                //adatbázisba beilleszt
+                asset assets = new asset();
+                assets.assetname = form.assetNameTextbox.Text;
+                assets.model = form.modelTextBox.Text;
+                assets.category = form.categoryTextBox.Text;
+                try
+                {
+                    assets.purchasedate = form.dateTimePicker1.Value;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                assets.price = Int32.Parse(form.priceTextBox.Text);
+                assets.serialnumber = form.serialTextBox.Text;
+                context.assets.Add(assets);
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 MessageBox.Show("Az eszköz hozzáadása az adatbázishoz sikeres volt");
             }
             else

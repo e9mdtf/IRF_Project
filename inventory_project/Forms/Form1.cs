@@ -1,5 +1,4 @@
 ﻿using inventory_project.Classes;
-using inventory_project.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,11 +28,11 @@ namespace inventory_project
             {
                 Account account = new Account();
                 account.accountName = nameTextBox.Text;
-                account.password = Account.getHash(passwordTextBox.Text);
-                bool userExists = AccountManager.CheckUser(account.accountName, account.password);
+                account.password = AccountManager.getHash(passwordTextBox.Text);
+                bool userExists = AccountManager.CheckUser(account.accountName, account.password, entities);
                 if (userExists == true)
                 {
-                    string userType = AccountManager.GetUserType(account.accountName);
+                    string userType = AccountManager.GetUserType(account.accountName, entities);
                     if (userType == "1")
                     {
                         adminForm f = new adminForm();
@@ -60,4 +59,4 @@ namespace inventory_project
         }
     }
     }
-}
+
