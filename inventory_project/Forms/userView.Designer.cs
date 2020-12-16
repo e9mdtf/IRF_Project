@@ -45,6 +45,7 @@
             this.exitBtn.TabIndex = 0;
             this.exitBtn.Text = "Bezárás";
             this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // newUserBtn
             // 
@@ -54,6 +55,7 @@
             this.newUserBtn.TabIndex = 2;
             this.newUserBtn.Text = "Új felhasználó hozzáadása";
             this.newUserBtn.UseVisualStyleBackColor = true;
+            this.newUserBtn.Click += new System.EventHandler(this.newUserBtn_Click);
             // 
             // filterTextBox
             // 
@@ -79,6 +81,7 @@
             this.filterBtn.TabIndex = 5;
             this.filterBtn.Text = "Szűrés";
             this.filterBtn.UseVisualStyleBackColor = true;
+            this.filterBtn.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // userDataGridView
             // 

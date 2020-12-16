@@ -76,7 +76,7 @@ namespace inventory_project
 
         private void categoryTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validate(modelTextBox, e);
+            validate(categoryTextBox, e);
         }
 
         private void serialTextBox_Validating(object sender, CancelEventArgs e)

@@ -91,6 +91,12 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\newUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\newUser.Designer.cs">
+      <DependentUpon>newUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="inventoryProject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\newAsset.resx">
       <DependentUpon>newAsset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\newUser.resx">
+      <DependentUpon>newUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
