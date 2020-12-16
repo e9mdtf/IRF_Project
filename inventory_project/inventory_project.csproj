@@ -81,7 +81,6 @@
     </Compile>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\AccountManager.cs" />
-    <Compile Include="Classes\passwordEncrypt.cs" />
     <Compile Include="ConnectAssetManufacturer.cs">
       <DependentUpon>inventoryProject.tt</DependentUpon>
     </Compile>

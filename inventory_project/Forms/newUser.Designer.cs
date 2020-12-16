@@ -162,10 +162,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox2;
-        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -173,5 +169,8 @@
         public System.Windows.Forms.CheckBox adminCheckBox;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Button cancelBtn;
+        public System.Windows.Forms.TextBox passwordTextBox;
+        public System.Windows.Forms.TextBox passwordTextBox2;
+        public System.Windows.Forms.TextBox usernameTextBox;
     }
 }

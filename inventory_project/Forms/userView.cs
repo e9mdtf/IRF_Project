@@ -1,4 +1,5 @@
-﻿using inventory_project.Forms;
+﻿using inventory_project.Classes;
+using inventory_project.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,25 @@ namespace inventory_project
             newUser form = new newUser();
             if (form.ShowDialog() == DialogResult.OK)
             {
+                user felhasznalo = new user();
+                felhasznalo.username = form.usernameTextBox.Text;
+                felhasznalo.userpass = AccountManager.getHash(form.usernameTextBox.Text);
+                felhasznalo.adminstatus = form.adminCheckBox.Checked;
+                context.users.Add(felhasznalo);
+                try
+                {
+                    context.SaveChanges();
+                    MessageBox.Show("A felhasználó hozzá lett adva az adatbázishoz");
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("A felhasználó nem lett hozzáadva az adatbázishoz");
             }
         }
     }
