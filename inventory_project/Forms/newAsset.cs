@@ -24,15 +24,6 @@ namespace inventory_project
 
         private void Common_Validating(object sender, CancelEventArgs e)
         {
-            newAsset form = new newAsset();
-            foreach (var t in Controls)
-            {
-                var txtBox = t as TextBox;
-                if (txtBox != null)
-                {
-                    validate(txtBox,e);
-                }
-            }
 
         }
         private void validate(TextBox txt, CancelEventArgs e)
@@ -71,6 +62,26 @@ namespace inventory_project
                 priceTextBox.BackColor = Color.Fuchsia;
                 MessageBox.Show("Az ár mezőbe kérem csak számokat írjon!");
             }
+        }
+
+        private void assetNameTextbox_Validating(object sender, CancelEventArgs e)
+        {
+            validate(assetNameTextbox, e);
+        }
+
+        private void modelTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validate(modelTextBox, e);
+        }
+
+        private void categoryTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validate(modelTextBox, e);
+        }
+
+        private void serialTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validate(serialTextBox, e);
         }
     }
 }

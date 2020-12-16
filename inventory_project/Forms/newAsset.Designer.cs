@@ -46,6 +46,7 @@
             // 
             // okBtn
             // 
+            this.okBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okBtn.Location = new System.Drawing.Point(232, 340);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(104, 67);
@@ -55,6 +56,7 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelBtn.Location = new System.Drawing.Point(391, 340);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(107, 67);
@@ -69,7 +71,7 @@
             this.assetNameTextbox.Size = new System.Drawing.Size(200, 20);
             this.assetNameTextbox.TabIndex = 2;
             this.assetNameTextbox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
-            this.assetNameTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
+            this.assetNameTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.assetNameTextbox_Validating);
             // 
             // modelTextBox
             // 
@@ -78,7 +80,7 @@
             this.modelTextBox.Size = new System.Drawing.Size(200, 20);
             this.modelTextBox.TabIndex = 3;
             this.modelTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
-            this.modelTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
+            this.modelTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.modelTextBox_Validating);
             // 
             // categoryTextBox
             // 
@@ -87,7 +89,7 @@
             this.categoryTextBox.Size = new System.Drawing.Size(200, 20);
             this.categoryTextBox.TabIndex = 4;
             this.categoryTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
-            this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
+            this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.categoryTextBox_Validating);
             // 
             // priceTextBox
             // 
@@ -112,7 +114,7 @@
             this.serialTextBox.Size = new System.Drawing.Size(200, 20);
             this.serialTextBox.TabIndex = 7;
             this.serialTextBox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
-            this.serialTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.Common_Validating);
+            this.serialTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.serialTextBox_Validating);
             // 
             // assetNameLabel
             // 
